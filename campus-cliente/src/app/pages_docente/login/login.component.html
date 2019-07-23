@@ -1,0 +1,13 @@
+﻿<div class="col-md-12 col-lg-12 ">
+<nb-card status="success">
+    <nb-card-header>Usuario a consultar</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="userGroup">
+            <input type="text" class="form-control" formControlName="User">
+            <button class="btn btn-info btn-sm"
+                    (click)="onSubmit()">Entrar</button>
+        </form>
+    </nb-card-body>
+</nb-card>
+</div>
+
