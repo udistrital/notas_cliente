@@ -4,6 +4,6 @@ export default{
         port: "5432",
         database: 'pasantia',
         user: 'postgres',
-        password: 'postgres',
+        password: 'sebastianmm28',
     }
 }

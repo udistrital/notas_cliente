@@ -13,26 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class ProfesoresController {
-    list(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            var profesores = new Array();
-            const teacher = yield database_1.default.any('SELECT codigo from docente');
-            for (let i in teacher) {
-                const codProfesor = teacher[i].codigo;
-                const query = yield database_1.default.any('SELECT codigo, nombre, apellido, correo, contrasena from usuario WHERE codigo=$1', [codProfesor]);
-                profesores.push(query[0]);
-            }
-            res.json(profesores);
-        });
-    }
+class AsignaturaController {
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const profesor = yield database_1.default.any('SELECT codigo, nombre, apellido from usuario WHERE codigo = $1', [id]);
-            res.json(profesor);
+            const materia = yield database_1.default.any('SELECT codigo, nombre from asignatura WHERE codigo = $1', [id]);
+            res.json(materia);
         });
     }
 }
-const profesoresController = new ProfesoresController();
-exports.default = profesoresController;
+const asignaturaController = new AsignaturaController();
+exports.default = asignaturaController;

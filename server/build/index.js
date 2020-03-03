@@ -12,6 +12,7 @@ const materiasestudianteRoute_1 = __importDefault(require("./routes/materiasestu
 const estudiantesRoute_1 = __importDefault(require("./routes/estudiantesRoute"));
 const profesoresRoute_1 = __importDefault(require("./routes/profesoresRoute"));
 const profesorAsignaturaNotaRoute_1 = __importDefault(require("./routes/profesorAsignaturaNotaRoute"));
+const asignaturaRoute_1 = __importDefault(require("./routes/asignaturaRoute"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -27,6 +28,7 @@ class Server {
     }
     routes() {
         this.app.use('/', indexRoute_1.default);
+        this.app.use('/asignatura', asignaturaRoute_1.default);
         this.app.use('/profesor/materias', materiasRoute_1.default);
         this.app.use('/profesor/', profesoresRoute_1.default);
         this.app.use('/estudiante/materias', materiasestudianteRoute_1.default);

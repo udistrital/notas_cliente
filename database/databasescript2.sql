@@ -4,6 +4,7 @@ ALTER TABLE estudiante_asignatura RENAME codigo_asignaruta to codigo_asignatura;
 
 ALTER TABLE nota ALTER COLUMN nota1 DROP NOT NULL;
 ALTER TABLE nota ALTER COLUMN porcentaje1 DROP NOT NULL;
+
 ALTER TABLE nota ALTER COLUMN porcentaje1 TYPE integer;
 
 ALTER TABLE nota ADD COLUMN nota2 integer;
@@ -22,7 +23,6 @@ ALTER TABLE nota ADD COLUMN examen_final integer;
 ALTER TABLE nota ADD COLUMN porcentaje_ex integer;
 ALTER TABLE nota ADD COLUMN habilitacion integer;
 ALTER TABLE nota ADD COLUMN porcentaje_hab integer;
-ALTER TABLE nota ADD COLUMN definitiva integer;
 
 CREATE TABLE public.docente_asignatura
 (
@@ -60,17 +60,14 @@ INSERT INTO estudiante (codigo, proyecto_curricular) VALUES (124, 'Ingenieria El
 INSERT INTO docente (codigo) VALUES (456);
 INSERT INTO docente (codigo) VALUES (457);
 
-INSERT INTO nota (id_nota, nota1, porcentaje1, nota2, porcentaje2, nota3, porcentaje3, nota4, porcentaje4, nota5, porcentaje5, nota6, porcentaje6,laboratorio, porcentaje_lab, examen_final, porcentaje_ex, habilitacion, porcentaje_hab, definitiva) VALUES (100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO nota (id_nota, nota1, porcentaje1, nota2, porcentaje2, nota3, porcentaje3, nota4, porcentaje4, nota5, porcentaje5, nota6, porcentaje6,laboratorio, porcentaje_lab, examen_final, porcentaje_ex, habilitacion, porcentaje_hab, definitiva) VALUES (101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO nota (id_nota, nota1, porcentaje1, nota2, porcentaje2, laboratorio, porcentaje_lab, examen_final, porcentaje_ex) VALUES (100, 50, 20, 40, 30, 40, 20, 30, 30);
+INSERT INTO nota (id_nota, nota1, porcentaje1, nota4, porcentaje4, nota5, porcentaje5, nota6, porcentaje6, examen_final, porcentaje_ex) VALUES (101, 20, 15, 40, 15, 35, 20, 30, 20, 50, 30);
 
-INSERT INTO asignatura_nota (codigo_asignatura, id_nota) VALUES (2, 100);
+INSERT INTO asignatura_nota (codigo_asignatura, id_nota) VALUES (1, 100);
 INSERT INTO asignatura_nota (codigo_asignatura, id_nota) VALUES (2, 101);
 
 INSERT INTO estudiante_asignatura (codigo_estudiante, codigo_asignatura) VALUES (123, 1);
-INSERT INTO estudiante_asignatura (codigo_estudiante, codigo_asignatura) VALUES (124, 2);
+INSERT INTO estudiante_asignatura (codigo_estudiante, codigo_asignatura) VALUES (123, 2);
 
 INSERT INTO docente_asignatura (codigo_docente, codigo_asignatura) VALUES (456, 1);
 INSERT INTO docente_asignatura (codigo_docente, codigo_asignatura) VALUES (457, 2);
-
-INSERT INTO estudiante_nota (codigo_estudiante, id_nota) values (123, 100);
-INSERT INTO estudiante_nota (codigo_estudiante, id_nota) values (124, 101);

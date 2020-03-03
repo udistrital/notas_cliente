@@ -12,7 +12,6 @@ CREATE TABLE Asignatura (
 )
 ;
 
-
 CREATE TABLE Asignatura_Nota ( 
 	Codigo_Asignatura integer,
 	ID_Nota integer
@@ -42,14 +41,6 @@ CREATE TABLE Nota (
 	ID_Nota integer NOT NULL
 )
 ;
-
-CREATE TABLE Estudiante_Nota
-(
-    codigo_estudiante integer,
-    id_nota integer,
-)
-;
-
 
 CREATE TABLE Usuario ( 
 	Codigo integer NOT NULL,
@@ -112,17 +103,6 @@ ALTER TABLE Asignatura_Nota ADD CONSTRAINT FK_Asignatura_Nota_Nota
 	FOREIGN KEY (ID_Nota) REFERENCES Nota (ID_Nota)
 ON UPDATE CASCADE
 ;
-
-ALTER TABLE Estudiante_Nota CONSTRAINT FK_Estudiante_Nota_Estudiante
-	FOREIGN KEY (Codigo_Estudiante) REFERENCES Estudiante (Codigo)
-ON UPDATE CASCADE
-;
-
-ALTER TABLE Estudiante_Nota CONSTRAINT FK_Estudiante_Nota_Nota
-	FOREIGN KEY (ID_Nota) REFERENCES Nota (ID_Nota)
-ON UPDATE CASCADE
-;
-
 
 ALTER TABLE Docente ADD CONSTRAINT FK_Docente_Usuario 
 	FOREIGN KEY (Codigo) REFERENCES Usuario (Codigo)

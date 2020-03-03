@@ -7,6 +7,7 @@ import materiasestudianteRoute from './routes/materiasestudianteRoute';
 import estudianteRoute from './routes/estudiantesRoute';
 import profesorRoute from './routes/profesoresRoute';
 import profesorAsignaturaNotaRoute from './routes/profesorAsignaturaNotaRoute';
+import asignaturaRoute from './routes/asignaturaRoute';
 class Server {
     public app: Application;
 
@@ -26,6 +27,7 @@ class Server {
 
     routes(): void{
         this.app.use('/', indexRoute);
+        this.app.use('/asignatura', asignaturaRoute);
         this.app.use('/profesor/materias', materiasRoute);
         this.app.use('/profesor/', profesorRoute);
         this.app.use('/estudiante/materias',materiasestudianteRoute);
